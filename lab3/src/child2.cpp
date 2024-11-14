@@ -3,6 +3,7 @@
 #include <sys/mman.h>
 #include <unistd.h>
 #include <cstring>
+
 int main() {
     int shm_fd = shm_open(SHM_NAME, O_RDWR, 0666);
     if (shm_fd == -1) {
@@ -15,9 +16,11 @@ int main() {
         perror("Failed to map shared memory");
         return EXIT_FAILURE;
     }
+
     for (char* p = shared_memory; *p; ++p) {
         if (*p == ' ') *p = '_';
     }
+
     kill(getppid(), SIGUSR2);
 
     munmap(shared_memory, SHARED_MEM_SIZE);

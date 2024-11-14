@@ -17,4 +17,7 @@ void wait_for_children() {
     while (!child1_ready || !child2_ready) {
         pause();
     }
+
+    child1_ready = 0;
+    child2_ready = 0;
 }

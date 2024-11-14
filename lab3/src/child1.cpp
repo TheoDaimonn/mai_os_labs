@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <cctype>
 #include <cstring>
+
 int main() {
     int shm_fd = shm_open(SHM_NAME, O_RDWR, 0666);
     if (shm_fd == -1) {

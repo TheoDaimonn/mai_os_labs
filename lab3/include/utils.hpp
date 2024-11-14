@@ -9,7 +9,6 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-
 constexpr size_t SHARED_MEM_SIZE = 4096;
 constexpr const char* SHM_NAME = "/my_shared_memory";
 

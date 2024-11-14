@@ -1,3 +1,4 @@
+
 #include "include/parent.hpp"
 #include "include/utils.hpp"
 #include <cstdlib>
@@ -5,7 +6,8 @@
 #include <stdexcept>
 
 int main() {
-    // Retrieve paths to child executables from environment variables
+    // export PATH_TO_CHILD1="/home/ivzarru/os_labs/lab3/build/child1"
+    // export PATH_TO_CHILD2="/home/ivzarru/os_labs/lab3/build/child2"
     const char* pathToChild1 = std::getenv("PATH_TO_CHILD1");
     const char* pathToChild2 = std::getenv("PATH_TO_CHILD2");
 
@@ -18,13 +20,8 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    // Prompt user for input
-    std::string userInput;
-    std::cout << "Enter a string to transform: ";
-    std::getline(std::cin, userInput);
-
     try {
-        ParentProcess(pathToChild1, pathToChild2, userInput);
+        ParentProcess(pathToChild1, pathToChild2);
     } catch (const std::runtime_error& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return EXIT_FAILURE;
